@@ -10,7 +10,7 @@ public class CoRoutine : MonoBehaviour
     {
         hello = StartCoroutine(Wait4in4Seconds());
         StartCoroutine(PrintValuesEverySec());
-        
+        StartCoroutine(BeingPressed());
         
     }
 
@@ -43,5 +43,17 @@ public class CoRoutine : MonoBehaviour
             num++;
             yield return new WaitForSeconds(1);
         }
+    }
+
+    private IEnumerator BeingPressed() 
+    {
+        while (true)
+        {
+            
+            yield return new WaitForAnyKey();
+            print("I'm being pressed");
+        }
+        
+        
     }
 }
